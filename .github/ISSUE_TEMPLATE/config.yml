@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Fork-first usage policy
+    url: https://github.com/u10-github/Discord-gate/blob/main/CONTRIBUTING.md
+    about: This repository is not actively maintained. Fork it and operate your own copy.
