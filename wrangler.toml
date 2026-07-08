@@ -1,0 +1,12 @@
+name = "discord-gate"
+main = "src/app/worker.ts"
+compatibility_date = "2026-07-08"
+
+[observability]
+logs = { enabled = true, invocation_logs = true }
+
+[vars]
+TURNSTILE_SITE_KEY = "your-turnstile-site-key"
+DISCORD_CHANNEL_ID = "your-discord-channel-id"
+INVITE_MAX_AGE = "900"
+INVITE_MAX_USES = "1"
