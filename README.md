@@ -36,6 +36,15 @@ The intended usage model is:
 - It does not prevent trusted users with invite permissions from creating bypass links.
 - It does not provide managed hosting or support.
 
+## Quick Start
+
+```bash
+npm install
+npm run check
+```
+
+Local / preview execution depends on your Cloudflare Workers setup. See `docs/setup.md`.
+
 ## Required Discord Operations
 
 Discord Gate only controls invite links that it creates. It does not invalidate existing Discord invite links.
@@ -80,11 +89,21 @@ Never commit secrets.
 
 ## Deployment Model
 
-This project is designed for Cloudflare Workers with GitHub Actions + Wrangler.
+This project is designed for Cloudflare Workers with Wrangler.
 
-- PR: typecheck / test / lint.
-- main push: typecheck / test / lint, then `wrangler deploy`.
-- Runtime secrets stay in Cloudflare Worker Secrets.
+The active GitHub Actions workflow in this repository runs CI only. A deploy workflow is provided as an example under `docs/examples/deploy.yml`; copy it into `.github/workflows/deploy.yml` in your fork only after you have reviewed and configured your own Cloudflare credentials.
+
+Runtime secrets stay in Cloudflare Worker Secrets.
+
+## Project Structure
+
+```text
+src/app         Worker routes and request/response handling
+src/core        Invite policy, use-case, domain types, and ports
+src/extensions  Cloudflare Turnstile, Discord API, rate-limit, and logging adapters
+docs            Public setup and operation notes
+scripts         Local guard scripts
+```
 
 ## Forking
 
