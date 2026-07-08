@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "build": "tsc",
-    "arch": "depcruise src/ && ./scripts/arch_guard.sh",
+    "arch": "depcruise src/ && bash scripts/arch_guard.sh",
     "secretlint": "secretlint '**/*'",
     "check": "npm run format:check && npm run typecheck && npm run lint && npm test && npm run arch && npm run secretlint && npm run build"
   },
