@@ -1,0 +1,29 @@
+{
+  "name": "discord-gate",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "format:check": "biome check src/",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "tsc",
+    "arch": "depcruise src/ && ./scripts/arch_guard.sh",
+    "secretlint": "secretlint '**/*'",
+    "check": "npm run format:check && npm run typecheck && npm run lint && npm test && npm run arch && npm run secretlint && npm run build"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.0",
+    "@cloudflare/workers-types": "^4.0.0",
+    "@eslint/js": "^9.0.0",
+    "@secretlint/secretlint-rule-preset-recommend": "^8.0.0",
+    "dependency-cruiser": "^16.0.0",
+    "eslint": "^9.0.0",
+    "secretlint": "^8.0.0",
+    "typescript": "^5.5.0",
+    "typescript-eslint": "^8.0.0",
+    "vitest": "^2.0.0"
+  }
+}
